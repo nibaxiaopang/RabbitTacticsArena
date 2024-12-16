@@ -305,7 +305,7 @@
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcR-vC-0TQ">
                                 <rect key="frame" x="624.5" y="93" width="229.5" height="228"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eTg-dK-OBJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="229" height="228"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="229.5" height="228"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olV-0T-lVb">
@@ -362,7 +362,7 @@
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnt-qS-cMd">
                                         <rect key="frame" x="0.0" y="0.0" width="229.5" height="228"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iqO-Mr-7K6">
-                                            <rect key="frame" x="0.0" y="0.0" width="230" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="229.5" height="228"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-os-n0x">
@@ -1002,6 +1002,17 @@
                                             <constraint firstAttribute="height" constant="240" id="d6J-d5-0Ai"/>
                                             <constraint firstItem="T8J-TF-yOc" firstAttribute="centerY" secondItem="vXe-AJ-D5N" secondAttribute="centerY" id="mX2-E2-wgA"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.92155760529999997" green="0.58502131700000004" blue="0.30411612989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>
