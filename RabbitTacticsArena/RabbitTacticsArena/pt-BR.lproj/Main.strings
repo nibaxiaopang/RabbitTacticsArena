@@ -1,0 +1,69 @@
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "6Nb-kZ-gDb"; */
+"6Nb-kZ-gDb.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "Contact us"; ObjectID = "7ob-TJ-ulR"; */
+"7ob-TJ-ulR.text" = "Contact us";
+
+/* Class = "UILabel"; text = "Setting"; ObjectID = "8Hf-S5-Etf"; */
+"8Hf-S5-Etf.text" = "Setting";
+
+/* Class = "UILabel"; text = "Turn"; ObjectID = "AAc-1p-sNr"; */
+"AAc-1p-sNr.text" = "Turn";
+
+/* Class = "UIButton"; normalTitle = "Let's play"; ObjectID = "AHA-za-xZG"; */
+"AHA-za-xZG.normalTitle" = "Let's play";
+
+/* Class = "UILabel"; text = "Your Email"; ObjectID = "By2-ei-ZjJ"; */
+"By2-ei-ZjJ.text" = "Your Email";
+
+/* Class = "UILabel"; text = "Your Message"; ObjectID = "DIh-D7-0KO"; */
+"DIh-D7-0KO.text" = "Your Message";
+
+/* Class = "UIButton"; normalTitle = "Play now"; ObjectID = "EHR-Ts-eZb"; */
+"EHR-Ts-eZb.normalTitle" = "Play now";
+
+/* Class = "UILabel"; text = "Tic Tac Toe"; ObjectID = "Mjq-ud-ynA"; */
+"Mjq-ud-ynA.text" = "Tic Tac Toe";
+
+/* Class = "UILabel"; text = "Home"; ObjectID = "XPO-fS-DS7"; */
+"XPO-fS-DS7.text" = "Home";
+
+/* Class = "UIButton"; normalTitle = "Play now"; ObjectID = "alC-Ay-vDS"; */
+"alC-Ay-vDS.normalTitle" = "Play now";
+
+/* Class = "UILabel"; text = "Rabbit Tactics Arena"; ObjectID = "bzs-cl-o4y"; */
+"bzs-cl-o4y.text" = "Rabbit Tactics Arena";
+
+/* Class = "UILabel"; text = "About us"; ObjectID = "fg3-Wc-Ld0"; */
+"fg3-Wc-Ld0.text" = "About us";
+
+/* Class = "UILabel"; text = "Turn"; ObjectID = "jAu-iL-0My"; */
+"jAu-iL-0My.text" = "Turn";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "m6R-ga-DlY"; */
+"m6R-ga-DlY.text" = "Feedback";
+
+/* Class = "UILabel"; text = "Red score:"; ObjectID = "mN4-B1-e4v"; */
+"mN4-B1-e4v.text" = "Red score:";
+
+/* Class = "UILabel"; text = "Turn"; ObjectID = "nN7-QN-mr5"; */
+"nN7-QN-mr5.text" = "Turn";
+
+/* Class = "UITextField"; placeholder = "Share your email, we'll reach out!"; ObjectID = "o9E-us-lPc"; */
+"o9E-us-lPc.placeholder" = "Share your email, we'll reach out!";
+
+/* Class = "UILabel"; text = " Green score:"; ObjectID = "of7-Vt-eS4"; */
+"of7-Vt-eS4.text" = " Green score:";
+
+/* Class = "UILabel"; text = "Reset"; ObjectID = "vf0-5L-2AR"; */
+"vf0-5L-2AR.text" = "Reset";
+
+/* Class = "UITextView"; text = "About Us\n\nHop into the action with Rabbit Tactics Arena!\nRabbit Tactics Arena is the ultimate two-player strategy game that combines quick thinking, tactical planning, and exciting head-to-head competition. Step into the arena and challenge friends or family in two thrilling game modes that will test your wits and skills!\n\nFeatures:\n\t1.\tGrid Planning Mode\n\t•\tA modern twist on the classic connect game, infused with strategic depth.\n\t•\tTake turns dropping vibrant red and green blocks on the grid.\n\t•\tThe goal is simple but challenging: connect 4 pieces in a row horizontally, vertically, or diagonally to claim victory!\n\t•\tOutsmart your opponent by planning every hop toward success.\n\t2.\tTic Tac Toe Mode\n\t•\tA fresh take on a timeless favorite with bold red and green game pieces.\n\t•\tCompete in a fast-paced, bunny-smart battle to arrange your color blocks in a line.\n\t•\tQuick rounds and clever moves make this a test of reflexes and strategy.\n\nWhy choose Rabbit Tactics Arena?\n\t•\tTwo Games in One: Enjoy two engaging game modes—Grid Planning and Tic Tac Toe—all in one app.\n\t•\tDynamic Bunny Theme: Immerse yourself in a world of vibrant colors and rabbit-inspired strategy.\n\t•\tTurn-Based Fun: Perfect for two players sharing the same device.\n\t•\tEasy to Learn, Hard to Master: Simple rules with endless strategic depth for all ages.\n\t•\tSmooth Animations: Experience polished visuals and fluid block-dropping effects for an enjoyable gaming experience.\n\t•\tCompetitive Edge: Challenge your friends, outwit your family, and hop to victory in the ultimate tactical arena!\n\nAre you ready to hop, plan, and conquer? Enter the Rabbit Tactics Arena today and prove your strategic prowess!"; ObjectID = "wCD-Hn-c5o"; */
+"wCD-Hn-c5o.text" = "About Us\n\nHop into the action with Rabbit Tactics Arena!\nRabbit Tactics Arena is the ultimate two-player strategy game that combines quick thinking, tactical planning, and exciting head-to-head competition. Step into the arena and challenge friends or family in two thrilling game modes that will test your wits and skills!\n\nFeatures:\n\t1.\tGrid Planning Mode\n\t•\tA modern twist on the classic connect game, infused with strategic depth.\n\t•\tTake turns dropping vibrant red and green blocks on the grid.\n\t•\tThe goal is simple but challenging: connect 4 pieces in a row horizontally, vertically, or diagonally to claim victory!\n\t•\tOutsmart your opponent by planning every hop toward success.\n\t2.\tTic Tac Toe Mode\n\t•\tA fresh take on a timeless favorite with bold red and green game pieces.\n\t•\tCompete in a fast-paced, bunny-smart battle to arrange your color blocks in a line.\n\t•\tQuick rounds and clever moves make this a test of reflexes and strategy.\n\nWhy choose Rabbit Tactics Arena?\n\t•\tTwo Games in One: Enjoy two engaging game modes—Grid Planning and Tic Tac Toe—all in one app.\n\t•\tDynamic Bunny Theme: Immerse yourself in a world of vibrant colors and rabbit-inspired strategy.\n\t•\tTurn-Based Fun: Perfect for two players sharing the same device.\n\t•\tEasy to Learn, Hard to Master: Simple rules with endless strategic depth for all ages.\n\t•\tSmooth Animations: Experience polished visuals and fluid block-dropping effects for an enjoyable gaming experience.\n\t•\tCompetitive Edge: Challenge your friends, outwit your family, and hop to victory in the ultimate tactical arena!\n\nAre you ready to hop, plan, and conquer? Enter the Rabbit Tactics Arena today and prove your strategic prowess!";
+
+/* Class = "UILabel"; text = "Reset"; ObjectID = "wVl-ws-DPP"; */
+"wVl-ws-DPP.text" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "yWK-Ou-aDr"; */
+"yWK-Ou-aDr.normalTitle" = "Submit";

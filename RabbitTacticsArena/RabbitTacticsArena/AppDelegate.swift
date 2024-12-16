@@ -7,6 +7,9 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import FirebaseCore
+import FirebaseMessaging
+import AppsFlyerLib
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.isEnabled = true
+        
+        FirebaseApp.configure()
+                
+        let appsFlyer = AppsFlyerLib.shared()
+        appsFlyer.appsFlyerDevKey = UIViewController.whisper_AppsFlyerDevKey()
+        appsFlyer.appleAppID = "6739499513"
+        appsFlyer.waitForATTUserAuthorization(timeoutInterval: 60)
+        appsFlyer.delegate = self
         return true
     }
 
@@ -33,6 +44,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
 }
 
+extension AppDelegate :AppsFlyerLibDelegate{
+    
+    /// AppsFlyerLibDelegate
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        print("success appsflyer")
+    }
+    
+    func onConversionDataFail(_ error: Error) {
+        print("error appsflyer")
+    }
+}

@@ -7,4 +7,6 @@ target 'RabbitTacticsArena' do
 
   # Pods for RabbitTacticsArena
   pod 'IQKeyboardManagerSwift'
+  pod 'Firebase/Messaging'
+  pod 'AppsFlyerFramework'
 end

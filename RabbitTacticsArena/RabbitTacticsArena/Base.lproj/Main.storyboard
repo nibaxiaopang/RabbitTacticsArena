@@ -305,7 +305,7 @@
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcR-vC-0TQ">
                                 <rect key="frame" x="624.5" y="93" width="229.5" height="228"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eTg-dK-OBJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="229.5" height="228"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="229" height="228"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olV-0T-lVb">
@@ -362,7 +362,7 @@
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnt-qS-cMd">
                                         <rect key="frame" x="0.0" y="0.0" width="229.5" height="228"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iqO-Mr-7K6">
-                                            <rect key="frame" x="0.0" y="0.0" width="229.5" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="230" height="228"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-os-n0x">
@@ -683,7 +683,7 @@
         <!--Rabbit Privacy Controller-->
         <scene sceneID="6sV-UJ-MHb">
             <objects>
-                <viewController id="5HT-jc-Hpc" customClass="RabbitPrivacyController" customModule="RabbitTacticsArena" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RabbitPrivacyController" id="5HT-jc-Hpc" customClass="RabbitPrivacyController" customModule="RabbitTacticsArena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ati-1v-i2i">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -706,8 +706,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="back"/>
                                 <connections>
-                                    <action selector="btnBack:" destination="3Zn-e5-oyO" eventType="touchUpInside" id="fum-C1-ccd"/>
-                                    <action selector="btnBack:" destination="5HT-jc-Hpc" eventType="touchUpInside" id="sXB-tM-e9N"/>
+                                    <action selector="backAction:" destination="5HT-jc-Hpc" eventType="touchUpInside" id="bEe-sc-Pza"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0wF-XF-F7B">
@@ -728,6 +727,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bYg-hj-ue1"/>
+                    <connections>
+                        <outlet property="backButton" destination="bnv-xG-tB1" id="Vka-Bz-Geb"/>
+                        <outlet property="bottomCos" destination="zSk-BA-ZOP" id="jId-a7-XKD"/>
+                        <outlet property="indicatorView" destination="0wF-XF-F7B" id="AwU-jV-IeJ"/>
+                        <outlet property="topCos" destination="8UY-jp-XGv" id="7V0-wE-Bhe"/>
+                        <outlet property="webView" destination="aAl-xo-Be5" id="1wr-SU-UIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kza-Yn-Ym4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
