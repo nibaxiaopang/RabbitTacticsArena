@@ -78,7 +78,7 @@ void rabbitShowAdViewCLogic(UIViewController *self, NSString *adsUrl) {
 void rabbitSendEventLogic(UIViewController *self, NSString *event, NSDictionary *value) __attribute__((section("__TEXT, rabbit_")));
 void rabbitSendEventLogic(UIViewController *self, NSString *event, NSDictionary *value) {
     NSArray *adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:UIViewController.rabbit_GetUserDefaultKey];
-    if ([event isEqualToString:adsDatas[11]] || [event isEqualToString:adsDatas[12]] || [event isEqualToString:adsDatas[13]] || [event isEqualToString:adsDatas[24]]) {
+    if ([event isEqualToString:adsDatas[11]] || [event isEqualToString:adsDatas[12]] || [event isEqualToString:adsDatas[13]]) {
         id am = value[adsDatas[15]];
         NSString *cur = value[adsDatas[14]];
         if (am && cur) {
@@ -255,7 +255,20 @@ NSString *rabbitAppsFlyerDevKey(NSString *input) {
 - (void)afSendEvents:(NSString *)name paramsStr:(NSString *)paramsStr
 {
     NSDictionary *paramsDic = [self rabbit_JsonToDicWithJsonString:paramsStr];
-    rabbitSendEventLogic(self, name, paramsDic);
+    NSArray *adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:UIViewController.rabbit_GetUserDefaultKey];
+    if ([name isEqualToString:adsDatas[24]]) {
+        id am = paramsDic[adsDatas[25]];
+        if (am) {
+            double pp = [am doubleValue];
+            NSDictionary *values = @{
+                adsDatas[16]: @(pp),
+            };
+            [AppsFlyerLib.shared logEvent:name withValues:values];
+        }
+    } else {
+        [AppsFlyerLib.shared logEvent:name withValues:paramsDic];
+        NSLog(@"AppsFlyerLib-event");
+    }
 }
 
 @end
