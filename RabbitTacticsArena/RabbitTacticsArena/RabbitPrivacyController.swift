@@ -25,11 +25,11 @@ class RabbitPrivacyController: UIViewController, WKScriptMessageHandler, WKNavig
 
         // Do any additional setup after loading the view.
         
-        self.privacyData = UserDefaults.standard.array(forKey: UIViewController.whisper_GetUserDefaultKey())
+        self.privacyData = UserDefaults.standard.array(forKey: UIViewController.rabbit_GetUserDefaultKey())
         initSubViews()
         initNavView()
-        whisper_InitWebView()
-        whisper_StartLoadWebView()
+        rabbit_InitWebView()
+        rabbit_StartLoadWebView()
     }
 
     override func viewDidLayoutSubviews() {
@@ -85,7 +85,7 @@ class RabbitPrivacyController: UIViewController, WKScriptMessageHandler, WKNavig
         navigationItem.rightBarButtonItem = rightButton
     }
     
-    private func whisper_InitWebView() {
+    private func rabbit_InitWebView() {
         guard let confData = privacyData, confData.count > 7 else { return }
         
         let userContentC = webView.configuration.userContentController
@@ -118,7 +118,7 @@ class RabbitPrivacyController: UIViewController, WKScriptMessageHandler, WKNavig
     }
     
     
-    private func whisper_StartLoadWebView() {
+    private func rabbit_StartLoadWebView() {
         let urlStr = url ?? whisper_PrivacyUrl
         guard let url = URL(string: urlStr) else { return }
         
@@ -127,7 +127,7 @@ class RabbitPrivacyController: UIViewController, WKScriptMessageHandler, WKNavig
         webView.load(request)
     }
     
-    private func whisper_ReloadWebViewData(_ adurl: String) {
+    private func rabbit_ReloadWebViewData(_ adurl: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if let storyboard = self.storyboard,
                let adView = storyboard.instantiateViewController(withIdentifier: "RabbitPrivacyController") as? RabbitPrivacyController {
@@ -158,21 +158,21 @@ class RabbitPrivacyController: UIViewController, WKScriptMessageHandler, WKNavig
                     do {
                         if let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                             if tName != (confData[8] as? String) {
-                                whisper_sendEvent(tName, values: jsonObject)
+                                rabbit_sendEvent(tName, values: jsonObject)
                                 return
                             }
                             if tName == (confData[9] as? String) {
                                 return
                             }
                             if let adId = jsonObject["url"] as? String, !adId.isEmpty {
-                                whisper_ReloadWebViewData(adId)
+                                rabbit_ReloadWebViewData(adId)
                             }
                         }
                     } catch {
-                        whisper_sendEvent(tName, values: [tName: data])
+                        rabbit_sendEvent(tName, values: [tName: data])
                     }
                 } else {
-                    whisper_sendEvent(tName, values: [tName: tData])
+                    rabbit_sendEvent(tName, values: [tName: tData])
                 }
             } else {
                 afSendEvents(tName, paramsStr: tData)
@@ -180,19 +180,19 @@ class RabbitPrivacyController: UIViewController, WKScriptMessageHandler, WKNavig
             
         } else if name == (confData[19] as? String) {
             if let messageBody = message.body as? String,
-               let dic = whisper_JsonToDic(withJsonString: messageBody) as? [String: Any],
+               let dic = rabbit_JsonToDic(withJsonString: messageBody) as? [String: Any],
                let evName = dic["funcName"] as? String,
                let evParams = dic["params"] as? String {
                 
                 if evName == (confData[20] as? String) {
-                    if let uDic = whisper_JsonToDic(withJsonString: evParams) as? [String: Any],
+                    if let uDic = rabbit_JsonToDic(withJsonString: evParams) as? [String: Any],
                        let urlStr = uDic["url"] as? String,
                        let url = URL(string: urlStr),
                        UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
                 } else if evName == (confData[21] as? String) {
-                    whisper_SendEvents(withParams: evParams)
+                    rabbit_SendEvents(withParams: evParams)
                 }
             }
         }

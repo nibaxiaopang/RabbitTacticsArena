@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
                 
         let appsFlyer = AppsFlyerLib.shared()
-        appsFlyer.appsFlyerDevKey = UIViewController.whisper_AppsFlyerDevKey()
+        appsFlyer.appsFlyerDevKey = UIViewController.rabbit_AppsFlyerDevKey()
         appsFlyer.appleAppID = "6739499513"
         appsFlyer.waitForATTUserAuthorization(timeoutInterval: 60)
         appsFlyer.delegate = self

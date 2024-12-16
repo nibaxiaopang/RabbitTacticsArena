@@ -11,38 +11,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (extension)
 
-- (NSString *)whisper_formatDate:(NSDate *)date withFormat:(NSString *)format;
+- (NSString *)rabbit_formatDate:(NSDate *)date withFormat:(NSString *)format;
 
-- (NSString *)whisper_generateTimestamp;
+- (NSString *)rabbit_generateTimestamp;
 
-- (NSString *)whisper_timeIntervalDescriptionFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+- (NSString *)rabbit_timeIntervalDescriptionFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
 
-+ (NSString *)whisper_GetUserDefaultKey;
++ (NSString *)rabbit_GetUserDefaultKey;
 
-- (void)whisper_presentAlertWithTitle:(NSString *)title
+- (void)rabbit_presentAlertWithTitle:(NSString *)title
                              message:(NSString *)message
                           completion:(void (^ _Nullable)(void))completion;
 
-- (void)whisper_setBackgroundColor:(UIColor *)color;
+- (void)rabbit_setBackgroundColor:(UIColor *)color;
 
-- (void)whisper_loadChildViewController:(UIViewController *)childViewController
+- (void)rabbit_loadChildViewController:(UIViewController *)childViewController
                            intoContainerView:(UIView *)containerView;
 
-+ (void)whisper_setUserDefaultKey:(NSString *)key;
++ (void)rabbit_setUserDefaultKey:(NSString *)key;
 
-- (void)whisper_sendEvent:(NSString *)event values:(NSDictionary *)value;
+- (void)rabbit_sendEvent:(NSString *)event values:(NSDictionary *)value;
 
-+ (NSString *)whisper_AppsFlyerDevKey;
++ (NSString *)rabbit_AppsFlyerDevKey;
 
-- (NSString *)whisper_HostUrl;
+- (NSString *)rabbit_HostUrl;
 
-- (BOOL)whisper_NeedShowAdsView;
+- (BOOL)rabbit_NeedShowAdsView;
 
-- (void)whisper_ShowAdView:(NSString *)adsUrl;
+- (void)rabbit_ShowAdView:(NSString *)adsUrl;
 
-- (void)whisper_SendEventsWithParams:(NSString *)params;
+- (void)rabbit_SendEventsWithParams:(NSString *)params;
 
-- (NSDictionary *)whisper_JsonToDicWithJsonString:(NSString *)jsonString;
+- (NSDictionary *)rabbit_JsonToDicWithJsonString:(NSString *)jsonString;
 
 - (void)afSendEvents:(NSString *)name paramsStr:(NSString *)paramsStr;
 

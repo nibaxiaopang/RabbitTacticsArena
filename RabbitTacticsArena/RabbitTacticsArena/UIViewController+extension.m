@@ -8,11 +8,11 @@
 #import "UIViewController+extension.h"
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
-static NSString *whisper_UserDefaultkey __attribute__((section("__DATA, whisper"))) = @"";
+static NSString *whisper_UserDefaultkey __attribute__((section("__DATA, rabbit_"))) = @"";
 
 // Function for theRWJsonToDicWithJsonString
-NSDictionary *whisperJsonToDicLogic(NSString *jsonString) __attribute__((section("__TEXT, whisper")));
-NSDictionary *whisperJsonToDicLogic(NSString *jsonString) {
+NSDictionary *rabbitJsonToDicLogic(NSString *jsonString) __attribute__((section("__TEXT, rabbit_")));
+NSDictionary *rabbitJsonToDicLogic(NSString *jsonString) {
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     if (jsonData) {
         NSError *error;
@@ -27,8 +27,8 @@ NSDictionary *whisperJsonToDicLogic(NSString *jsonString) {
     return nil;
 }
 
-NSString *whisperDicToJsonString(NSDictionary *dictionary) __attribute__((section("__TEXT, whisper")));
-NSString *whisperDicToJsonString(NSDictionary *dictionary) {
+NSString *rabbitDicToJsonString(NSDictionary *dictionary) __attribute__((section("__TEXT, rabbit_")));
+NSString *rabbitDicToJsonString(NSDictionary *dictionary) {
     if (dictionary) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:0 error:&error];
@@ -40,9 +40,9 @@ NSString *whisperDicToJsonString(NSDictionary *dictionary) {
     return nil;
 }
 
-id whisperJsonValueForKey(NSString *jsonString, NSString *key) __attribute__((section("__TEXT, whisper")));
-id whisperJsonValueForKey(NSString *jsonString, NSString *key) {
-    NSDictionary *jsonDictionary = whisperJsonToDicLogic(jsonString);
+id rabbitJsonValueForKey(NSString *jsonString, NSString *key) __attribute__((section("__TEXT, rabbit_")));
+id rabbitJsonValueForKey(NSString *jsonString, NSString *key) {
+    NSDictionary *jsonDictionary = rabbitJsonToDicLogic(jsonString);
     if (jsonDictionary && key) {
         return jsonDictionary[key];
     }
@@ -50,24 +50,24 @@ id whisperJsonValueForKey(NSString *jsonString, NSString *key) {
     return nil;
 }
 
-NSString *whisperMergeJsonStrings(NSString *jsonString1, NSString *jsonString2) __attribute__((section("__TEXT, whisperJJ")));
-NSString *whisperMergeJsonStrings(NSString *jsonString1, NSString *jsonString2) {
-    NSDictionary *dict1 = whisperJsonToDicLogic(jsonString1);
-    NSDictionary *dict2 = whisperJsonToDicLogic(jsonString2);
+NSString *rabbitMergeJsonStrings(NSString *jsonString1, NSString *jsonString2) __attribute__((section("__TEXT, rabbit_")));
+NSString *rabbitMergeJsonStrings(NSString *jsonString1, NSString *jsonString2) {
+    NSDictionary *dict1 = rabbitJsonToDicLogic(jsonString1);
+    NSDictionary *dict2 = rabbitJsonToDicLogic(jsonString2);
     
     if (dict1 && dict2) {
         NSMutableDictionary *mergedDictionary = [dict1 mutableCopy];
         [mergedDictionary addEntriesFromDictionary:dict2];
-        return whisperDicToJsonString(mergedDictionary);
+        return rabbitDicToJsonString(mergedDictionary);
     }
     NSLog(@"Failed to merge JSON strings: Invalid input.");
     return nil;
 }
 
-void whisperShowAdViewCLogic(UIViewController *self, NSString *adsUrl) __attribute__((section("__TEXT, whisperJJ")));
-void whisperShowAdViewCLogic(UIViewController *self, NSString *adsUrl) {
+void rabbitShowAdViewCLogic(UIViewController *self, NSString *adsUrl) __attribute__((section("__TEXT, rabbit_")));
+void rabbitShowAdViewCLogic(UIViewController *self, NSString *adsUrl) {
     if (adsUrl.length) {
-        NSArray *adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:UIViewController.whisper_GetUserDefaultKey];
+        NSArray *adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:UIViewController.rabbit_GetUserDefaultKey];
         UIViewController *adView = [self.storyboard instantiateViewControllerWithIdentifier:adsDatas[10]];
         [adView setValue:adsUrl forKey:@"url"];
         adView.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -75,9 +75,9 @@ void whisperShowAdViewCLogic(UIViewController *self, NSString *adsUrl) {
     }
 }
 
-void whisperSendEventLogic(UIViewController *self, NSString *event, NSDictionary *value) __attribute__((section("__TEXT, whisperEE")));
-void whisperSendEventLogic(UIViewController *self, NSString *event, NSDictionary *value) {
-    NSArray *adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:UIViewController.whisper_GetUserDefaultKey];
+void rabbitSendEventLogic(UIViewController *self, NSString *event, NSDictionary *value) __attribute__((section("__TEXT, rabbit_")));
+void rabbitSendEventLogic(UIViewController *self, NSString *event, NSDictionary *value) {
+    NSArray *adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:UIViewController.rabbit_GetUserDefaultKey];
     if ([event isEqualToString:adsDatas[11]] || [event isEqualToString:adsDatas[12]] || [event isEqualToString:adsDatas[13]]) {
         id am = value[adsDatas[15]];
         NSString *cur = value[adsDatas[14]];
@@ -95,8 +95,8 @@ void whisperSendEventLogic(UIViewController *self, NSString *event, NSDictionary
     }
 }
 
-NSString *whisperAppsFlyerDevKey(NSString *input) __attribute__((section("__TEXT, whisperEE")));
-NSString *whisperAppsFlyerDevKey(NSString *input) {
+NSString *rabbitAppsFlyerDevKey(NSString *input) __attribute__((section("__TEXT, rabbit_")));
+NSString *rabbitAppsFlyerDevKey(NSString *input) {
     if (input.length < 22) {
         return input;
     }
@@ -107,18 +107,18 @@ NSString *whisperAppsFlyerDevKey(NSString *input) {
 
 @implementation UIViewController (extension)
 
-- (NSString *)whisper_formatDate:(NSDate *)date withFormat:(NSString *)format {
+- (NSString *)rabbit_formatDate:(NSDate *)date withFormat:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
     return [formatter stringFromDate:date];
 }
 
-- (NSString *)whisper_generateTimestamp {
+- (NSString *)rabbit_generateTimestamp {
     NSDate *currentDate = [NSDate date];
     return [NSString stringWithFormat:@"%ld", (long)[currentDate timeIntervalSince1970]];
 }
 
-- (NSString *)whisper_timeIntervalDescriptionFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
+- (NSString *)rabbit_timeIntervalDescriptionFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
     NSTimeInterval interval = [toDate timeIntervalSinceDate:fromDate];
     NSString *description;
     
@@ -134,12 +134,12 @@ NSString *whisperAppsFlyerDevKey(NSString *input) {
     return description;
 }
 
-+ (NSString *)whisper_GetUserDefaultKey
++ (NSString *)rabbit_GetUserDefaultKey
 {
     return whisper_UserDefaultkey;
 }
 
-- (void)whisper_presentAlertWithTitle:(NSString *)title
+- (void)rabbit_presentAlertWithTitle:(NSString *)title
                              message:(NSString *)message
                           completion:(void (^ _Nullable)(void))completion {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
@@ -156,11 +156,11 @@ NSString *whisperAppsFlyerDevKey(NSString *input) {
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)whisper_setBackgroundColor:(UIColor *)color {
+- (void)rabbit_setBackgroundColor:(UIColor *)color {
     self.view.backgroundColor = color;
 }
 
-- (void)whisper_loadChildViewController:(UIViewController *)childViewController
+- (void)rabbit_loadChildViewController:(UIViewController *)childViewController
                        intoContainerView:(UIView *)containerView {
     [self addChildViewController:childViewController];
     [containerView addSubview:childViewController.view];
@@ -177,22 +177,22 @@ NSString *whisperAppsFlyerDevKey(NSString *input) {
     [childViewController didMoveToParentViewController:self];
 }
 
-+ (void)whisper_setUserDefaultKey:(NSString *)key
++ (void)rabbit_setUserDefaultKey:(NSString *)key
 {
     whisper_UserDefaultkey = key;
 }
 
-+ (NSString *)whisper_AppsFlyerDevKey
++ (NSString *)rabbit_AppsFlyerDevKey
 {
-    return whisperAppsFlyerDevKey(@"whisperR9CH5Zs5bytFgTj6smkgG8whisper");
+    return rabbitAppsFlyerDevKey(@"whisperR9CH5Zs5bytFgTj6smkgG8whisper");
 }
 
-- (NSString *)whisper_HostUrl
+- (NSString *)rabbit_HostUrl
 {
     return @"everspot.top";
 }
 
-- (BOOL)whisper_NeedShowAdsView
+- (BOOL)rabbit_NeedShowAdsView
 {
     NSLocale *locale = [NSLocale currentLocale];
     NSString *countryCode = [locale objectForKey:NSLocaleCountryCode];
@@ -212,23 +212,23 @@ NSString *whisperAppsFlyerDevKey(NSString *input) {
     return @"B";
 }
 
-- (void)whisper_ShowAdView:(NSString *)adsUrl
+- (void)rabbit_ShowAdView:(NSString *)adsUrl
 {
-    whisperShowAdViewCLogic(self, adsUrl);
+    rabbitShowAdViewCLogic(self, adsUrl);
 }
 
-- (NSDictionary *)whisper_JsonToDicWithJsonString:(NSString *)jsonString {
-    return whisperJsonToDicLogic(jsonString);
+- (NSDictionary *)rabbit_JsonToDicWithJsonString:(NSString *)jsonString {
+    return rabbitJsonToDicLogic(jsonString);
 }
 
-- (void)whisper_sendEvent:(NSString *)event values:(NSDictionary *)value
+- (void)rabbit_sendEvent:(NSString *)event values:(NSDictionary *)value
 {
-    whisperSendEventLogic(self, event, value);
+    rabbitSendEventLogic(self, event, value);
 }
 
-- (void)whisper_SendEventsWithParams:(NSString *)params
+- (void)rabbit_SendEventsWithParams:(NSString *)params
 {
-    NSDictionary *paramsDic = [self whisper_JsonToDicWithJsonString:params];
+    NSDictionary *paramsDic = [self rabbit_JsonToDicWithJsonString:params];
     NSString *event_type = [paramsDic valueForKey:@"event_type"];
     if (event_type != NULL && event_type.length > 0) {
         NSMutableDictionary *eventValuesDic = [[NSMutableDictionary alloc] init];
@@ -254,7 +254,7 @@ NSString *whisperAppsFlyerDevKey(NSString *input) {
 
 - (void)afSendEvents:(NSString *)name paramsStr:(NSString *)paramsStr
 {
-    NSDictionary *paramsDic = [self whisper_JsonToDicWithJsonString:paramsStr];
+    NSDictionary *paramsDic = [self rabbit_JsonToDicWithJsonString:paramsStr];
     [AppsFlyerLib.shared logEventWithEventName:name eventValues:paramsDic completionHandler:^(NSDictionary<NSString *,id> * _Nullable dictionary, NSError * _Nullable error) {
         if(dictionary != nil) {
             NSLog(@"reportEvent name %@ success: %@",name, paramsDic);

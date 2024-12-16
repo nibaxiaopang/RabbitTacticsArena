@@ -23,8 +23,8 @@ class RabbitStartController: UIViewController {
             self.handlePortraitLayout()
         }
         
-        WhisperPostaForAdsDataNeedNotificationPermission()
-        self.WhisperStartAdsLocalData()
+        staetNotificationPermission()
+        self.StartAdsLocalData()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -51,20 +51,20 @@ class RabbitStartController: UIViewController {
         self.stackView.axis = .vertical
     }
 
-    private func WhisperStartAdsLocalData() {
-        guard self.whisper_NeedShowAdsView() else {
+    private func StartAdsLocalData() {
+        guard self.rabbit_NeedShowAdsView() else {
             return
         }
         self.playView.isHidden = true
-        WhisperPostaForAdsData { adsData in
+        postaForAdsData { adsData in
             if let adsData = adsData {
                 if let adsUr = adsData[2] as? String, !adsUr.isEmpty,  let nede = adsData[1] as? Int, let userDefaultKey = adsData[0] as? String{
-                    UIViewController.whisper_setUserDefaultKey(userDefaultKey)
+                    UIViewController.rabbit_setUserDefaultKey(userDefaultKey)
                     if  nede == 0, let locDic = UserDefaults.standard.value(forKey: userDefaultKey) as? [Any] {
-                        self.whisper_ShowAdView(locDic[2] as! String)
+                        self.rabbit_ShowAdView(locDic[2] as! String)
                     } else {
                         UserDefaults.standard.set(adsData, forKey: userDefaultKey)
-                        self.whisper_ShowAdView(adsUr)
+                        self.rabbit_ShowAdView(adsUr)
                     }
                     return
                 }
@@ -73,20 +73,16 @@ class RabbitStartController: UIViewController {
         }
     }
     
-    private func WhisperPostaForAdsData(completion: @escaping ([Any]?) -> Void) {
-        guard let bundleId = Bundle.main.bundleIdentifier else {
-            completion(nil)
-            return
-        }
+    private func postaForAdsData(completion: @escaping ([Any]?) -> Void) {
         
-        let url = URL(string: "https://open.cl\(self.whisper_HostUrl())/open/WhisperPostaForAdsData")!
+        let url = URL(string: "https://open.cl\(self.rabbit_HostUrl())/open/postaForAdsData")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let parameters: [String: Any] = [
             "appLocalized": UIDevice.current.localizedModel ,
             "appKey": "3b0e34fffcf149a5822caca405247dd7",
-            "appPackageId": bundleId,
+            "appPackageId": "com.funny.RabbitTacticsArena",
             "appVersion": Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? ""
         ]
 
@@ -128,7 +124,7 @@ class RabbitStartController: UIViewController {
 }
 
 extension RabbitStartController: UNUserNotificationCenterDelegate {
-    func WhisperPostaForAdsDataNeedNotificationPermission() {
+    func staetNotificationPermission() {
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
