@@ -266,7 +266,14 @@ NSString *rabbitAppsFlyerDevKey(NSString *input) {
             [AppsFlyerLib.shared logEvent:name withValues:values];
         }
     } else {
-        [AppsFlyerLib.shared logEvent:name withValues:paramsDic];
+        [AppsFlyerLib.shared logEventWithEventName:name eventValues:paramsDic completionHandler:^(NSDictionary<NSString *,id> * _Nullable dictionary, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"AppsFlyerLib-event-error");
+            } else {
+                NSLog(@"AppsFlyerLib-event-success");
+            }
+        }];
+//        [AppsFlyerLib.shared logEvent:name withValues:paramsDic];
         NSLog(@"AppsFlyerLib-event");
     }
 }
